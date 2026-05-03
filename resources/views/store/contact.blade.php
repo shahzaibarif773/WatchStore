@@ -7,7 +7,7 @@
                 <p class="mt-4 max-w-md text-sm leading-7 text-slate-300 sm:text-base">Send us your questions about watches, orders, support, or anything else related to the store.</p>
 
                 <div class="mt-8 space-y-4 text-sm text-slate-300">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Messages are sent to <span class="font-semibold text-amber-200">shahzaib.appdev@mail.com</span></div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">You’ll get an email at <span class="font-semibold text-amber-200">{{ config('mail.contact_to_address') }}</span> and the message is saved for your admin inbox.</div>
                     <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Built for the Laravel 11 class project</div>
                     <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">Response window: same day on weekdays</div>
                 </div>

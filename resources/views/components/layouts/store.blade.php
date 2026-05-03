@@ -22,7 +22,7 @@
             <div class="border-b border-slate-200/70 bg-slate-950 text-white">
                 <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-slate-300 lg:px-6">
                     <span>Admin workspace</span>
-                    <span class="hidden sm:inline">Control products, orders, and users</span>
+                    <span class="hidden sm:inline">Control products, orders, users, and support messages</span>
                     <span class="text-amber-200">Storefront tools</span>
                 </div>
             </div>
@@ -39,6 +39,7 @@
                     <a href="{{ route('admin.products.index') }}" class="rounded-full border border-slate-200 bg-white px-4 py-2 transition hover:border-amber-300 hover:bg-amber-50">Products</a>
                     <a href="{{ route('admin.orders.index') }}" class="rounded-full border border-slate-200 bg-white px-4 py-2 transition hover:border-amber-300 hover:bg-amber-50">Orders</a>
                     <a href="{{ route('admin.users.index') }}" class="rounded-full border border-slate-200 bg-white px-4 py-2 transition hover:border-amber-300 hover:bg-amber-50">Users</a>
+                    <a href="{{ route('admin.contact-messages.index') }}" class="rounded-full border border-slate-200 bg-white px-4 py-2 transition hover:border-amber-300 hover:bg-amber-50">Messages</a>
                     <a href="{{ route('home') }}" class="rounded-full border border-slate-200 bg-white px-4 py-2 transition hover:border-slate-300 hover:bg-slate-50">Back to store</a>
                 </nav>
             </div>
@@ -54,8 +55,7 @@
             <div class="bg-[#1e1e1e] text-white">
                 <div class="mx-auto flex max-w-[1240px] items-center justify-between gap-4 px-4 py-2.5 text-[0.66rem] uppercase tracking-[0.2em] text-slate-200 lg:px-6">
                     <div class="flex items-center gap-4">
-                        <span>+92 349 460</span>
-                        <span class="hidden sm:inline">support@watchstore.com</span>
+                        <a href="{{ route('contact.create') }}" class="transition hover:text-white underline-offset-4 hover:underline">Contact support</a>
                     </div>
                     <div class="flex items-center gap-4">
                         @auth

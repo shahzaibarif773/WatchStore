@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
+use App\Models\ContactMessage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -22,6 +23,11 @@ class ContactController extends Controller
             'email' => ['required', 'email', 'max:255'],
             'subject' => ['required', 'string', 'max:255'],
             'message' => ['required', 'string', 'max:2000'],
+        ]);
+
+        ContactMessage::create([
+            ...$validated,
+            'user_id' => $request->user()?->id,
         ]);
 
         $recipient = config('mail.contact_to_address', 'shahzaib.appdev@mail.com');
