@@ -2,6 +2,15 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    @if (Route::has('register'))
+        <p class="mb-6 text-center text-sm text-gray-600">
+            {{ __('New account?') }}
+            <a href="{{ route('register') }}" class="font-semibold text-indigo-600 underline decoration-transparent underline-offset-4 transition hover:text-indigo-500 hover:decoration-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-sm">
+                {{ __('Sign up') }}
+            </a>
+        </p>
+    @endif
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

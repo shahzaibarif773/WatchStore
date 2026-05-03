@@ -1,0 +1,10 @@
+npm run dev
+
+php artisan serve
+
+
+
+ADMIN>>>>>>>>>>
+
+Email: admin@watchstore.test
+Password: password

@@ -65,7 +65,9 @@
                                 <button type="submit" class="transition hover:text-white">Logout</button>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="transition hover:text-white">Account</a>
+                            <a href="{{ route('login') }}" class="transition hover:text-white">{{ __('Sign in') }}</a>
+                            <span class="text-slate-600" aria-hidden="true">|</span>
+                            <a href="{{ route('register') }}" class="transition hover:text-white">{{ __('Sign up') }}</a>
                         @endauth
                         <a href="{{ route('cart.index') }}" class="transition hover:text-white">Cart ({{ $cartCount }})</a>
                     </div>
@@ -152,6 +154,9 @@
                             <a href="{{ route('products.index') }}" class="block transition hover:text-slate-950">Browse collection</a>
                             <a href="{{ route('cart.index') }}" class="block transition hover:text-slate-950">Shopping cart</a>
                             <a href="{{ route('checkout.create') }}" class="block transition hover:text-slate-950">Checkout</a>
+                            @guest
+                                <a href="{{ route('register') }}" class="block transition hover:text-slate-950">{{ __('Create account') }}</a>
+                            @endguest
                         </div>
                     </div>
                     <div>
