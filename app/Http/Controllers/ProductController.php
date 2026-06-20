@@ -14,8 +14,7 @@ class ProductController extends Controller
 
         if ($search = trim((string) $request->string('search'))) {
             $query->where(function ($builder) use ($search): void {
-                $builder->where('name', 'like', '%' . $search . '%')
-                    ->orWhere('description', 'like', '%' . $search . '%');
+                $builder->where('description', 'like', '%' . $search . '%');
             });
         }
 

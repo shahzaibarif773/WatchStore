@@ -43,16 +43,22 @@
 
         <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             @forelse($topSellers as $product)
-                @php($productImage = \Illuminate\Support\Str::startsWith($product->image, ['http://', 'https://']) ? $product->image : asset($product->image))
-                @php($fallbackBySlug = [
-                    'classic-silver' => asset('images/watches/classic-silver.svg'),
-                    'midnight-pro' => asset('images/watches/midnight-pro.svg'),
-                    'royal-gold' => 'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6',
-                   'ocean-blue' => 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49',
-                    'sport-edge' => asset('images/watches/sport-edge.svg'),
-                    'urban-steel' => asset('images/watches/urban-steel.svg'),
-                ])
-                @php($fallbackImage = $fallbackBySlug[$product->slug] ?? asset('images/watches/classic-silver.svg'))
+                @php
+                    $productImage = \Illuminate\Support\Str::startsWith($product->image, ['http://', 'https://'])
+                        ? $product->image
+                        : asset($product->image);
+
+                    $fallbackBySlug = [
+                        'classic-silver' => asset('images/watches/classic-silver.svg'),
+                        'midnight-pro' => asset('images/watches/midnight-pro.svg'),
+                        'royal-gold' => 'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6',
+                        'ocean-blue' => 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49',
+                        'sport-edge' => asset('images/watches/sport-edge.svg'),
+                        'urban-steel' => asset('images/watches/urban-steel.svg'),
+                    ];
+
+                    $fallbackImage = $fallbackBySlug[$product->slug] ?? asset('images/watches/classic-silver.svg');
+                @endphp
                 <article class="border border-slate-200 bg-white p-4 text-center">
                     <a href="{{ route('products.show', $product) }}" class="block">
                         <div class="relative h-56 overflow-hidden bg-slate-50">
